@@ -14,33 +14,37 @@ fs = 1000
 temp = 0
 yy=np.zeros(1999)
 
-plt.subplot(3,1,1)
+"""X1[n]"""
+plt.subplot(2,2,1)
 x1 = np.linspace(0,1,fs)
 y1 = signal.square(2*np.pi*freq*x1)
 l1 = len(y1)
+plt.title("X1[n]")
 plt.plot(x1,y1)
 
-plt.subplot(3,1,2)
+"""X2[n]"""
+plt.subplot(2,2,2)
 x2 = np.linspace(0,1,fs)
 y2 = np.sin(2*np.pi*freq*x2)
 l2 = len(y2)
+plt.title("X2[n]")
 plt.plot(x2,y2)
 
-plt.subplot(3,1,3)
+
+"""using builtin convolve func."""
+plt.subplot(2,2,3)
 x = np.linspace(0,1,1999)
 y = np.convolve(y1,y2)
 N = l1+l2-1
+plt.title("Convolve")
 plt.plot(x,y)
-plt.show()
 
-"""for i in range(len(x1)):
-    for j in range(0,i+1,1): 
-        temp+=(y1[j]*y2[i-j])
-    yy.append(temp)
-    temp = 0"""
+"""without builtin convolve func."""
 for i in range(0,N,1):
     for j in range(0,i+1,1):
         if j<l1 and i-j<l2:
             yy[i]+=y1[j]*y2[i-j]
-    
+plt.subplot(2,2,4)
+plt.title("Verfication")
 plt.plot(x,yy)
+plt.show()
