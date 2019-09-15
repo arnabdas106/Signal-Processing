@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Sep 15 22:33:46 2019
+
+@author: Arnab Das
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import signal
@@ -6,14 +13,16 @@ from scipy import signal
 #....
 fs=200
 freq=2
-k=15
+k=10
 f=float(1/fs)
 w=2*np.pi*freq
 
 x = np.linspace(0,1,fs)
 u = signal.sawtooth(4*np.pi*x,0.5)
 plt.subplot(2,2,1)
-plt.plot(x,u)
+plt.title("Input Signal")
+plt.plot(x,u,label = "Input")
+plt.legend()
 
 #calculation
 a=np.zeros(k)
@@ -27,9 +36,13 @@ for i in range(0,k,1):
         b[i]=b[i]+(u[j]*sin[j])
         
 plt.subplot(2,2,2)
-plt.stem(x1,a)
+plt.title("an")
+plt.stem(x1,a,label = "an")
 plt.subplot(2,2,3)
-plt.stem(x1,b)
+plt.legend()
+plt.title("bn")
+plt.stem(x1,b,label = "bn")
+plt.legend()
         
 #verification
 t=np.arange(0,k,1)
@@ -42,4 +55,7 @@ for i in range(0,k,1):
         x2[j]=x2[j]+(a[i]*cos[j]+b[i]*sin[j])
         
 plt.subplot(2,2,4)
-plt.plot(x,x2)
+plt.title("Verification")
+plt.plot(x,x2,label = "Ver.")
+plt.legend()
+plt.show()
