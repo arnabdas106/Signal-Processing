@@ -27,7 +27,7 @@ x2=np.arange(0,1,0.01)
 y2=-3*np.sinc(2*10*np.pi*x2)
 plt.subplot(subplots,2,2)
 plt.ylabel("Amp")
-plt.stem(x2,y2,label="h1[n]")
+plt.stem(x2,y2,label="h2[n]")
 plt.legend()
 
 x3=np.arange(0,1,0.01)
