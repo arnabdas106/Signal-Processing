@@ -28,7 +28,7 @@ for k in range(len(b)):
     temp = 0
     for n in range(len(b)):
         xn = b[n]
-        exp = np.exp(-2j*w*n*k)
+        exp = np.exp(-2j*w*n)
         temp += xn*exp
     ft.append(temp)
  
