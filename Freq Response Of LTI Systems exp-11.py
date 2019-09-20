@@ -11,7 +11,7 @@ import numpy as np
 N = 26
 ft = []
 freq = 10
-fs = 1000
+fs = 500
 conv = []
 
 """H(jw)"""
@@ -33,13 +33,13 @@ for t in range(0,len(a),1):
     sum=0
     w=a[t]
     for i in range(0,25,1):
-        sum=sum+(((b[i])*np.complex(np.cos(w*i),np.sin(w*i))))
+        sum += (b[i]*np.complex(np.cos(w*i),np.sin(w*i)))
     ft.append(sum.real)
 
 
 a1 = np.linspace(0,26,26)
 plt.subplot(4,1,2)
-plt.title("Inverse Fourier transform")
+plt.title("Inverse Fourier transform of H(jw)")
 plt.stem(a1,ft,label = "IFT")
 plt.legend()
 
@@ -47,7 +47,7 @@ plt.legend()
 a2 = np.linspace(0,1,fs)
 b2 = np.sin(2*np.pi*freq*a2)
 plt.subplot(4,1,3)
-plt.title("Input Signal")
+plt.title("Input Signal x(n)")
 plt.stem(a2,b2,label = "i/p")
 plt.legend()
 
@@ -60,7 +60,7 @@ conv = np.convolve(ft,b2)
 
 t = np.linspace(0,1,No)
 plt.subplot(4,1,4)
-plt.title("x(n)")
-plt.stem(t,conv,label = "x(n)")
+plt.title("y(n)")
+plt.stem(t,conv,label = "y(n)")
 plt.legend()
 plt.show()
