@@ -11,7 +11,7 @@ import numpy as np
 N = 26
 ft = []
 freq = 10
-fs = 500
+fs = 50*freq #???
 conv = []
 
 """H(jw)"""
