@@ -10,11 +10,9 @@ import numpy as np
 from scipy import signal
 
 #signal
-#....
 fs=200
 freq=2
 k=10
-f=float(1/fs)
 w=2*np.pi*freq
 
 x = np.linspace(0,1,fs)
