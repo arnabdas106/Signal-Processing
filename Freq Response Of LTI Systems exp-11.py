@@ -11,7 +11,7 @@ import numpy as np
 N = 26
 ft = []
 freq = 10
-fs = 50*freq #???
+fs = 50*freq
 conv = []
 
 """H(jw)"""
@@ -29,11 +29,11 @@ plt.legend()
 
 
 """IFT"""
-for t in range(0,len(a),1):
+for i in range(0,len(a),1):
     sum=0
-    w=a[t]
-    for i in range(0,25,1):
-        sum += (b[i]*np.complex(np.cos(w*i),np.sin(w*i)))
+    w=a[i]
+    for j in range(0,N,1):
+        sum += b[j]*np.complex(np.cos(w*j),np.sin(w*j))
     ft.append(sum.real)
 
 
