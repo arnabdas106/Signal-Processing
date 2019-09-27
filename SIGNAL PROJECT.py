@@ -8,8 +8,8 @@ Created on Fri Sep 27 19:47:25 2019
 """before using this code make sure to install 'sounddevice' library
     pip install sounddevice"""
 
-"""the builtin function sd.rec() records sound and a makes a 2d array which
-python treats it as a matrix....so fft function wont work.At that time we need
+"""the builtin function sd.rec() records sound and a makes a 2d array in
+time domain which python treats it as a matrix....so fft function wont work.At that time we need
 to use fft2()(2 means 2-d array). 
 if you don't want to use fft2() flatten the recorded signal to make a 2-d array
 to a 1-d array"""
