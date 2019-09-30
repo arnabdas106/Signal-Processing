@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 import sounddevice as sd
 from scipy.fftpack import fft
 import numpy as np
-import scipy
+from scipy import signal
 import scipy.io.wavfile
 import time
 
